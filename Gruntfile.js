@@ -7,6 +7,34 @@ module.exports = function( grunt ) {
 
 		pkg: grunt.file.readJSON( 'package.json' ),
 
+		concat: {
+			css: {
+		    	src: [ 
+		    		'node_modules/leaflet/dist/leaflet.css ',
+		    		'node_modules/leaflet.markercluster/dist/MarkerCluster.css',
+		    		'node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css'
+		    	],
+		    	dest: 'assets/css/bundle.css'
+		  	},
+		  	js: {
+		    	src: [ 
+		    		'node_modules/leaflet/dist/leaflet.js',
+		    		'node_modules/leaflet.markercluster/dist/leaflet.markercluster.js',
+		    		'node_modules/leaflet-makimarkers/Leaflet.MakiMarkers.js'
+		    	],
+		    	dest: 'assets/js/bundle.js'
+		  	}
+		},
+
+		copy: {
+			main: {
+				expand: true, 
+				flatten: true,
+				src: [ 'node_modules/leaflet/dist/images/*' ],
+				dest: 'assets/css/images/',
+			},
+		},
+
 		addtextdomain: {
 			options: {
 				textdomain: 'map-explorer',
@@ -47,6 +75,12 @@ module.exports = function( grunt ) {
 
 	grunt.loadNpmTasks( 'grunt-wp-i18n' );
 	grunt.loadNpmTasks( 'grunt-wp-readme-to-markdown' );
+	grunt.loadNpmTasks( 'grunt-contrib-concat' );
+	grunt.loadNpmTasks( 'grunt-contrib-uglify');
+	grunt.loadNpmTasks( 'grunt-contrib-copy');
+	//grunt.loadNpmTasks( 'grunt-contrib-qunit');
+	//grunt.loadNpmTasks( 'grunt-contrib-jshint');
+
 	grunt.registerTask( 'default', [ 'i18n','readme' ] );
 	grunt.registerTask( 'i18n', ['addtextdomain', 'makepot'] );
 	grunt.registerTask( 'readme', ['wp_readme_to_markdown'] );

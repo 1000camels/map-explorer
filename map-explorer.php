@@ -16,6 +16,11 @@
 defined( 'ABSPATH' ) || exit;
 
 
+// Load Elementor Extensions
+include_once( plugin_dir_path( __FILE__ ) . 'elementor/init.php' );
+
+
+
 add_action( 'plugins_loaded', 'map_explorer' );
 
 
@@ -104,49 +109,16 @@ function map_explorer() {
 		 */
 		public function init() {
 
-			// load scripts
-			add_action( 'init', [ $this, 'init_scripts' ] );
-			add_action( 'init', [ $this, 'init_styles' ] );
+			add_action( 'wp_default_scripts', [ $this, 'dequeue_jquery_migrate' ] );
 
 		}
 
-		/**
-		 * init_scripts
-		 */
-		public function init_scripts() {
-			wp_enqueue_script( 
-				'leaflet', 
-				plugins_url( '/assets/js/leaflet/leaflet.js', __FILE__ ), 
-				false, 
-				false, 
-				true 
-			);
-			wp_enqueue_script( 
-				'map-explorer', 
-				plugins_url( '/assets/js/map-explorer.js', __FILE__ ), 
-				[
-					'jquery',
-					'leaflet'
-				], 
-				false, 
-				true 
-			);
-
-	        // wp_localize_script('cc-extensions', 'pavilions', array(
-	        //     'ajaxurl' => admin_url('admin-ajax.php'),
-		       //  'security' => wp_create_nonce('load_journey_book'),
-	        // ));
+		public function dequeue_jquery_migrate( $scripts ) {
+		    if (!empty($scripts->registered['jquery'])) {
+		        $scripts->registered['jquery']->deps = array_diff($scripts->registered['jquery']->deps, ['jquery-migrate']);
+		    }
 		}
 
-		/**
-		 * init_styles
-		 */
-		public function init_styles() {
-			wp_enqueue_style( 'leaflet-styles', plugins_url( '/assets/js/leaflet/leaflet.css', __FILE__ ) );
-			
-			wp_register_style( 'map-explorer-styles', plugins_url( '/assets/css/style.css', __FILE__ ) );
-			wp_enqueue_style( 'map-explorer-styles' );
-		}
 
 	}
 
