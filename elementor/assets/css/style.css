@@ -3,6 +3,7 @@
   min-height: 540px;
 }*/
 
+/*Setting the section padding as a variable*/
 :root {
   --section-padding: 90px;
 }
