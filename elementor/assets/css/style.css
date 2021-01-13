@@ -1,0 +1,47 @@
+/*#map_explorer {
+  height: 100%;
+  min-height: 540px;
+}*/
+
+:root {
+  --section-padding: 90px;
+}
+
+/*@media all and (max-width: 767px) {
+
+  :root {
+    --section-padding: 340px;
+  }
+
+}*/
+
+/*Background colour on locations entry focus*/
+article.timeline.highlighted > div > div > section {
+  background-color: rgba(149, 201, 204, 0.6) !important;
+}
+
+/*Adding variable margin before entry*/
+.location-on-map::before {
+  display: block; 
+  content: " "; 
+  margin-top: calc(-1 * var(--section-padding));
+  height: var(--section-padding);
+  visibility: hidden; 
+  pointer-events: none;
+}
+
+/*Setting the map size and relative position*/
+.map-explorer-wrapper {
+  position: relative;
+  height: 100vh;
+  width: auto;
+}
+
+#map_explorer {
+  width: 100%;
+  height: 100%;
+}
+
+/*Custom style for the markers on map*/
+.marker-cluster-small {background-color: rgba(149, 201, 204, 0.6);}
+.marker-cluster-small div {background-color: rgba(149, 201, 204);}
