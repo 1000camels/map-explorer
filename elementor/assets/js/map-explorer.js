@@ -99,7 +99,7 @@ var map_explorer = '';
 
 						    
 						    layer.bindPopup(
-						    	'<h3 class="marker-name">'+feature.properties.name+'</h3>'+
+						    	'<span class="marker-name">'+feature.properties.name+'</span>'+
 								'<span class="marker-address">'+feature.properties.address+'</span>'
 							);
 							layer.on('mouseover', function (e) {
