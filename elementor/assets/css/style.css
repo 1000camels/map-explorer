@@ -35,7 +35,16 @@ article.timeline.highlighted > div > div > section {
 /*Custom style for the markers on map*/
 .marker-cluster-small {background-color: rgba(149, 201, 204, 0.6);}
 .marker-cluster-small div {background-color: rgba(149, 201, 204);}
+.marker-name {
+	display: block;
+	font-family: 'Old Standard TT';
+	font-size: 1.1em;
+	line-height: 1.2em;
+	color: #606060;
+}
+
 .marker-address {
+  display: block;
   font-family: 'lato';
   font-size: 0.9em;
   color: #29739b;
