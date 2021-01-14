@@ -46,8 +46,9 @@ article.timeline.highlighted > div > div > section {
 .marker-address {
   display: block;
   font-family: 'lato';
-  font-size: 0.9em;
+  font-size: 1em;
   color: #29739b;
+  padding-top: 5px;
 }
 
 
