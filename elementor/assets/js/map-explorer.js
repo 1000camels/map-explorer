@@ -97,7 +97,7 @@ var map_explorer = '';
 
 						  	layer.setIcon(icon);
 
-						    layer.bindPopup('<h4>'+feature.properties.name+'</h4>');
+						    layer.bindPopup('<h3>'+feature.properties.name+'</h3>');
 							layer.on('mouseover', function (e) {
 					            this.openPopup();
 					        });
