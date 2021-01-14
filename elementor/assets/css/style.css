@@ -35,7 +35,7 @@ article.timeline.highlighted > div > div > section {
 /*Custom style for the markers on map*/
 .marker-cluster-small {background-color: rgba(149, 201, 204, 0.6);}
 .marker-cluster-small div {background-color: rgba(149, 201, 204);}
-.address, .country {
+.map-address {
   font-family: 'lato';
   font-size: 0.8em;
   color: #29739b;
