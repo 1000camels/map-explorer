@@ -97,7 +97,11 @@ var map_explorer = '';
 
 						  	layer.setIcon(icon);
 
-						    layer.bindPopup('<h3>'+feature.properties.name+'</h3>');
+						    
+						    layer.bindPopup(
+						    	'<h3 class="marker-name">'+feature.properties.name+'</h3>'+
+								'<span class="marker-address">'+feature.properties.address+'</span>'
+							);
 							layer.on('mouseover', function (e) {
 					            this.openPopup();
 					        });
