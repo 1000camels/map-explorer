@@ -105,9 +105,9 @@ var map_explorer = '';
 							layer.on('mouseover', function (e) {
 					            this.openPopup();
 					        });
-					        layer.on('mouseout', function (e) {
-					            this.closePopup();
-					        });
+					        // layer.on('mouseout', function (e) {
+					        //     this.closePopup();
+					        // });
 					        layer.on('click', function (e) {
 					            window.location = '#'+feature.properties.url;
 					            //console.log([lat, lng]);
