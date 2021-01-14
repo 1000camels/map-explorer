@@ -214,6 +214,8 @@ final class Map_Explorer_Elementor_Extensions {
 
 		$lat = get_post_meta( $post->ID, 'map_latitude', true );
 		$lng = get_post_meta( $post->ID, 'map_longitude', true );
+		$address = get_post_meta( $post->ID, 'map_address', true );
+		$country = get_post_meta( $post->ID, 'map_country', true );
 
 		if( $lat && !empty($lat) && $lng && !empty($lng) ) {
 
@@ -227,7 +229,9 @@ final class Map_Explorer_Elementor_Extensions {
 					'id' => $post->ID,
 					'name' => $post->post_title,
 					'url' => 'location-'.$post->ID,
-					//'image' => $post->get_featured_image(),
+					'address' => $address,
+					'country' => $country,
+					'image' => wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ),
 				]
 			];
 
